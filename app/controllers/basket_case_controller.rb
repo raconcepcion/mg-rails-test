@@ -35,8 +35,10 @@ class BasketCaseController < ApplicationController
     def set_order
       if params.has_key?(:order) && params[:order] == "asc"
         @order = "desc" 
+        @current_order = "asc"
       else 
         @order = "asc" 
+        @current_order = "desc"
       end
     end
 end
