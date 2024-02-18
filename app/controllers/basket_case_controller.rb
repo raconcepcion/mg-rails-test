@@ -6,13 +6,13 @@ class BasketCaseController < ApplicationController
 
   def order_by_fruit
     @list_items = @list_items.sort
-    @list_items = @list_items.reverse if params[:order].present? && params[:order] == "desc" 
+    @list_items = @list_items.reverse if params.has_key?(:order) && params[:order] == "desc" 
     render 'basket_case/index'
   end
 
   def order_by_amount
     @list_items = @list_items.sort_by(&:last)
-    @list_items = @list_items.reverse if params[:order].present? && params[:order] == "desc"
+    @list_items = @list_items.reverse if params.has_key?(:order) && params[:order] == "desc"
 
     render 'basket_case/index'
   end
@@ -33,7 +33,7 @@ class BasketCaseController < ApplicationController
     end
 
     def set_order
-      if params[:order].present? && params[:order] == "asc"
+      if params.has_key?(:order) && params[:order] == "asc"
         @order = "desc" 
       else 
         @order = "asc" 
