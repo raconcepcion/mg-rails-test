@@ -1,11 +1,18 @@
 <h1>Fruit Basket</h1>
 <span class="data">raw data: <%= @fruits %></span>
 <br />
-<%= link_to "Order by Name", basket_case_order_by_fruit_path(order: @order), class: "button"%>
-<%= link_to "Order by Amount", basket_case_order_by_amount_path(order: @order),  class: "button"%>
+
+<%= link_to "Order by Name - #{@current_order}",
+  basket_case_order_by_fruit_path(order: @order),
+  class: "button #{params[:action] == 'order_by_fruit' ? '-active' : ''}"
+%>
+<%= link_to "Order by Amount - #{@current_order}",
+  basket_case_order_by_amount_path(order: @order),
+  class: "button #{params[:action] == 'order_by_amount' ? '-active' : ''}"
+%>
 
 <div class="container">
-<%- @list_items.each do |fruit, amount| %>
-  <p><%= fruit %> : <%= amount %></p>
-<% end %>
+  <%- @list_items.each do |fruit, amount| %>
+    <p><%= fruit %> : <%= amount %></p>
+  <% end %>
 </div>
