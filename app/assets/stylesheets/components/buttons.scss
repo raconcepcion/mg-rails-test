@@ -1,0 +1,42 @@
+.button {
+  border: none;
+  text-decoration: none;
+  background-color: #0A0A23;
+  color: #FFF;
+  border-radius: 10px;
+  padding: 16px;
+  min-height: 30px;
+  min-width: 120px;
+
+  & + .button {
+    margin-left: 8px;
+  }
+
+  &:hover {
+    background-color: #002EAD;
+    transition: 0.7s;
+  }
+
+  &:focus {
+    outline-color: transparent;
+    outline-style: solid;
+    box-shadow: 0 0 0 4px #5A01A7;
+  }
+}
+
+// variants
+.button.-primary {
+  background-color: #DC2F2F;
+
+  &:hover {
+    background-color: darken(#DC2F2F, 10%);
+  }
+}
+
+.button.-secondary {
+  background-color: #402A23;
+
+  &:hover {
+    background-color: #2C2D34;
+  }
+}
