@@ -2,13 +2,13 @@
 <span class="data">raw data: <%= @fruits %></span>
 <br />
 
-<%= link_to "Order by Name - #{@order}",
+<%= link_to "Order by Name - #{@current_order}",
   basket_case_order_by_fruit_path(order: @order),
-  class: "button"
+  class: "button #{params[:action] == 'order_by_fruit' ? '-active' : ''}"
 %>
-<%= link_to "Order by Amount - #{@order}",
+<%= link_to "Order by Amount - #{@current_order}",
   basket_case_order_by_amount_path(order: @order),
-  class: "button"
+  class: "button #{params[:action] == 'order_by_amount' ? '-active' : ''}"
 %>
 
 <div class="container">
